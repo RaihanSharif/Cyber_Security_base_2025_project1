@@ -1,0 +1,31 @@
+{
+    "name": "cyber_security_base_2025_project1",
+    "version": "1.0.0",
+    "description": "a web app to demo some of the OWASP top 10 vulnerabilities",
+    "homepage": "https://github.com/RaihanSharif/Cyber_Security_base_2025_project1#readme",
+    "bugs": {
+        "url": "https://github.com/RaihanSharif/Cyber_Security_base_2025_project1/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/RaihanSharif/Cyber_Security_base_2025_project1.git"
+    },
+    "license": "ISC",
+    "author": "raihan sharif",
+    "type": "commonjs",
+    "main": "app.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "dependencies": {
+        "bcryptjs": "^3.0.3",
+        "connect-pg-simple": "^10.0.0",
+        "ejs": "^3.1.10",
+        "express": "^5.2.1",
+        "express-session": "^1.18.2",
+        "express-validator": "^7.3.1",
+        "passport": "^0.7.0",
+        "passport-local": "^1.0.0",
+        "pg": "^8.16.3"
+    }
+}
