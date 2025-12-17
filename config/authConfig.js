@@ -9,13 +9,15 @@ const localStrat = new LocalStrategy(async (username, password, done) => {
             "SELECT * FROM account WHERE username = $1",
             [username]
         );
+        console.log(username);
         const user = rows[0];
-
-        const match = await bcrypt.compare(password, user.password);
+        console.log(user);
 
         if (!user) {
             return done(null, false, { message: "Incorrect username" });
         }
+
+        const match = await bcrypt.compare(password, user.password);
         if (!match) {
             return done(null, false, { message: "Incorrect password" });
         }
