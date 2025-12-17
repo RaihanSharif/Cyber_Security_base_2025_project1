@@ -57,7 +57,11 @@ In order to do this more securely, the developer should not trust user input and
 In this way, the application checks that there is a currently logged in user, and that the user has an `is_admin` attribute set to true. This cannot be accessed or edited client side.
 
 ### A02:2021 Cryptographic Failures
-
+One way cryptographic failure can occur is the improper use of hashing algorithms, namely, the use of general purpose or fast hashing algorithms like SHA-256 for hashing passwords. Such algorithms prioritise the speed, which allows attackers to try many different hashes to brute force a password. Another is the use of outdated hashing algorithms such as MD5. See below which uses an insecure outdated hashing algorithm, but also does not salt the hash, making it more vulnerable:
+<https://github.com/RaihanSharif/Cyber_Security_base_2025_project1/blob/e4a8098edb6fb85eac0873daab3ffbe3e0b27069/controllers/accountController.js#L32>
+Instead, always use a dedicated password hashing libraries, and salt the hash in order to randomize the hash, see below:
+<https://github.com/RaihanSharif/Cyber_Security_base_2025_project1/blob/e4a8098edb6fb85eac0873daab3ffbe3e0b27069/controllers/accountController.js#L33>
+The bcrypt library uses a deliberately slow hashing algorithm, it also creates a cryptographically secure salt, which it stores with the hash. Bcrypt is also well tested, making it a better choice than creating something from scratch.
 
 ### A03:2021 Injections
 
