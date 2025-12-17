@@ -8,8 +8,7 @@ const localStrat = new LocalStrategy(async (username, password, done) => {
     try {
         const { rows } = await pool.query(
             `SELECT * FROM account WHERE username = '${username}';`
-            // "SELECT * FROM account WHERE username = $1",
-            // [username]
+            // const {rows} = pool.query = "SELECT * FROM account WHERE username = $1", [username]
 
             /*
             SELECT * FROM account WHERE username = '; DROP TABLE post;--'
