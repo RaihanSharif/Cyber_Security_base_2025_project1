@@ -4,7 +4,7 @@ const validateUser = [
     body("message")
         .trim()
         .isLength({ min: 10, max: 500 })
-        .withMessage("'message must be between 3 and 500 characters long"),
+        .withMessage("'message must be between 10 and 500 characters long"),
 ];
 
 module.exports = validateUser;
