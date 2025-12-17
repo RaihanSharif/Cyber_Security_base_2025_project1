@@ -2,6 +2,7 @@ const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 const bcrypt = require("bcryptjs");
 const pool = require("../db/pool");
+const { createHash } = require("node:crypto");
 
 const localStrat = new LocalStrategy(async (username, password, done) => {
     try {
@@ -17,7 +18,10 @@ const localStrat = new LocalStrategy(async (username, password, done) => {
             return done(null, false, { message: "Incorrect username" });
         }
 
-        const match = await bcrypt.compare(password, user.password);
+        const match =
+            createHash("md5").update(password).digest("hex") === user.password;
+
+        // const match = await bcrypt.compare(password, user.password);
         if (!match) {
             return done(null, false, { message: "Incorrect password" });
         }

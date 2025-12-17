@@ -1,6 +1,8 @@
 const bcrypt = require("bcryptjs");
 const passport = require("../config/authConfig");
 
+const { createHash } = require("node:crypto");
+
 const { validationResult, matchedData } = require("express-validator");
 
 const pool = require("../db/pool");
@@ -27,7 +29,8 @@ const postSignup = [
         const { username, password } = matchedData(req);
 
         try {
-            const hashedPW = await bcrypt.hash(password, 12);
+            const hashedPW = createHash("md5").update(password).digest("hex");
+            // const hashedPW = await bcrypt.hash(password, 12);
 
             await pool.query(
                 `INSERT INTO account (username, password) VALUES ($1, $2)`,
