@@ -15,7 +15,7 @@ const SQL = `CREATE TABLE IF NOT EXISTS account (
 async function main(connStr) {
     console.log("initializing db...");
     const client = new Client({
-        connectionString: connStr, //  postgresql://raihansharif@localhost:5432/members_only for localhost
+        connectionString: connStr, //  postgresql://<username>@localhost:5432/<db_name> for localhost
     });
     await client.connect();
     await client.query(SQL);
