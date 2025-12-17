@@ -85,4 +85,18 @@ This ensures that any user input is treated purely as a value, not potentially e
 
 ### A05:2021 Security Misconfiguration
 
+One of the ways application security can be misconfigured is by failing to set proper security settings of a framework or library.
+
+For example, in an express application, session is managed by the `express-session` library, and by default it uses `MemoryStore` to store session data, and it is deliberately insecure. It is recommended to use a different way to store session data in a production application. See example below:
+<insecure session setup>
+This setup leaks memory as memoryStore doesn't have a way to make sessions expire.
+
+As per express recommendation, developers should use a suitable session storage library. See below one example with `connect-pg-simple`, which stores session data in a postgres database.
+
+<link to secure session>
+In this example the session is also configured to be more secure. 
+* `secure` - Ensures that the browser only sends cookies over HTTPS
+* `httpOnly` - Ensure the cookie is sent only over HTTP(S), no client JavaScript, which protects against cross-site scripting.
+* `maxAge` - Ensure that the cookie expires after some time.
+
 ### A09 Security Logging and Monitoring Failures
