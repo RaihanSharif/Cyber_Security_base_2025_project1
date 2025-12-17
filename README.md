@@ -47,17 +47,22 @@ In your browser navigate to `http://127.0.0.1:3000` to see the application.
 
 # List of vulnerabilities and fixes
 
-### A01 Broken Access Control
+### A01:2021 Broken Access Control
+<https://github.com/RaihanSharif/Cyber_Security_base_2025_project1/blob/edf4eb1973339ebe7c5aed5ac426fbfc8e7271d2/controllers/accountController.js#L63>
+In this example, the admin page is viewable by using a url query parameter `/admin/admin?=true`. This breaks access control by allowing users without admin privilage to access the admin page. This could potentially expose sensitive data, and if there are no further authetintication or authorization checks (e.g. deleteing a user), it could lead to data intengrity failure. 
 
-Broken access control blah blah blah...
+In order to do this more securely, the developer should not trust user input and use it to determine access control. Instead of using client side checking which is easily edited to by:
+<https://github.com/RaihanSharif/Cyber_Security_base_2025_project1/blob/db2075f5e3db22f50dd351a84e137d6cb73cc43f/controllers/accountController.js#L64>
 
-### A02 Cryptographic Failures
+In this way, the application checks that there is a currently logged in user, and that the user has an `is_admin` attribute set to true. This cannot be accessed or edited client side.
+
+### A02:2021 Cryptographic Failures
 
 
-### A03 Injections
+### A03:2021 Injections
 
 
-### A05 Security Misconfiguration
+### A05:2021 Security Misconfiguration
 
 
 ### A09 Security Logging and Monitoring Failures
