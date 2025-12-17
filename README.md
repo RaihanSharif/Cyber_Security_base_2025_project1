@@ -76,7 +76,12 @@ The bcrypt library uses a deliberately slow hashing algorithm, it also creates a
 ### A03:2021 Injections
 
 Unwated, hostile code can be injected into the application if user input is not properly sanitzed or validated. One common form of injection is SQL injection. Hostile actors can insert SQL queries where user input is concatenated with application SQL queries without using parameterised queries, like in the example below:
-<>
+<https://github.com/RaihanSharif/Cyber_Security_base_2025_project1/blob/995b9057dcc6a6b18527530a848770a3897a5b6e/config/authConfig.js#L10>
+By directly inserting user input into a SQL query, it becomes highly vulnerable to injection. For instance, it is possible to entirely delete the user table by inputting this string `'; DROP TABLE account CASCADE;--` instead of username.
+
+This kind of vulnerability can be prevented by using parameterised queries, as shown below:
+<https://github.com/RaihanSharif/Cyber_Security_base_2025_project1/blob/995b9057dcc6a6b18527530a848770a3897a5b6e/config/authConfig.js#L11>
+This ensures that any user input is treated purely as a value, not potentially executable code.
 
 ### A05:2021 Security Misconfiguration
 
