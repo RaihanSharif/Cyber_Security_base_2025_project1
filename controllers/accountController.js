@@ -61,6 +61,7 @@ const postLogin = [
 function getAdminView(req, res) {
     console.log(req.query.admin === "true");
     if (req.query.admin === "true") {
+        // if (req.user && req.user.is_admin) {
         res.render("adminPanel", { title: "admin panel" });
     } else {
         res.send("this page is for administrators only");
