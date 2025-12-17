@@ -10,6 +10,7 @@ const SQL = `CREATE TABLE IF NOT EXISTS account (
 
     CREATE TABLE IF NOT EXISTS post (
     id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    message TEXT NOT NULL,
     user_id INT REFERENCES account(id) ON DELETE CASCADE);`;
 
 async function main(connStr) {

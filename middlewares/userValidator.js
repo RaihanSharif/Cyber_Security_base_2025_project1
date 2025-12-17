@@ -1,7 +1,5 @@
 const { body } = require("express-validator");
 
-const pool = require("..db.pool");
-
 const validateUser = [
     body("username")
         .trim()

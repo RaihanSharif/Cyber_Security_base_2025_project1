@@ -69,5 +69,6 @@ module.exports = {
     getSingup,
     postSignup,
     postLogin,
+    postLogout,
     getAdminView,
 };
