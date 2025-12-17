@@ -22,6 +22,10 @@ function getCreatePostForm(req, res) {
 const postCreatePost = [
     postValidator,
     async (req, res, next) => {
+        if (!req.user) {
+            return next(new Error("must be logged in to create a post"));
+        }
+
         const errors = validationResult(req);
 
         if (!errors.isEmpty()) {

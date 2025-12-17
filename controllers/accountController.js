@@ -1,7 +1,7 @@
 const bcrypt = require("bcryptjs");
 const passport = require("..config/passport");
 
-const { validationResult, matchedData, check } = require("express-vbalidator");
+const { validationResult, matchedData } = require("express-vbalidator");
 
 const pool = require("../db/pool");
 const validateUser = require("..middlewares/userValidators");
