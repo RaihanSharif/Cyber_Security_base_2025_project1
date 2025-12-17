@@ -30,7 +30,7 @@ const postSignup = [
             const hashedPW = await bcrypt.hash(password, 12);
 
             await pool.query(
-                `INSERT INTO "User" (username, password) VALUES ($1, $2)`,
+                `INSERT INTO account (username, password) VALUES ($1, $2)`,
                 [username, hashedPW]
             );
             res.redirect("/");
