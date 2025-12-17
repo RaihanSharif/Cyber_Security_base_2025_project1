@@ -102,4 +102,10 @@ In this example the session is also configured to be more secure.
 
 ### A09 Security Logging and Monitoring Failures
 
-Logging key security event is vital to ensuring accountability. Meaning that in the event of a secuirty breach the security team is able to properly trace the source the breach, for example security misconfiguration. Logging is also important to be able to quickly see and respond to attacks. E.g. if a large number of login attempts are made in a short time, it should be logged so that appropriate action can be taken.
+Logging is critical for detecting intrusions or suspicious requests to the server. Without logs suspicious behaviour such as many repeated attempts to log in, or access restricted routes going undetected. If a system is breached, it is difficult to analyse in the aftermath without proper logging.
+Below is an example of a logging middleware which logs whever a user logs in or out, and any attempts to visit the admin page. This can used by sysadmins, to monitor suspicious activity or provide accountability of users who use the application.
+<https://github.com/RaihanSharif/Cyber_Security_base_2025_project1/blob/2f3ad7fd46e5de65a87138ca572fc87e4ad728c8/routes/authRoutes.js#L27>
+The logger middleware writes the log to a log file. An example log:
+```
+::1 - - [17/Dec/2025:15:23:30 +0000] "POST /log-in HTTP/1.1" 401 - "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36"
+```
