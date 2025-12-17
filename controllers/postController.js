@@ -8,7 +8,6 @@ async function getAllPosts(req, res, next) {
             await pool.query(`SELECT message, username FROM post JOIN account ON
             post.user_id=account.id;`);
 
-        console.log(rows);
         res.render("showPosts", { title: "posts", postList: rows });
     } catch (err) {
         return next(err);

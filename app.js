@@ -19,15 +19,15 @@ app.use(
         secret: process.env.SESSION_SECRET,
         resave: false,
         saveUninitialized: false,
-        // store: new pgSession({
-        //     pool: pool,
-        //     createTableIfMissing: true,
-        // }),
-        // cookie: {
-        //     maxAge: 24 * 60 * 60 * 1000,
-        //     secure: true,
-        //     httpOnly: true,
-        //  }, // 1 day
+        store: new pgSession({
+            pool: pool,
+            createTableIfMissing: true,
+        }),
+        cookie: {
+            maxAge: 24 * 60 * 60 * 1000,
+            // secure: true,
+            httpOnly: true,
+        }, // 1 day
     })
 );
 

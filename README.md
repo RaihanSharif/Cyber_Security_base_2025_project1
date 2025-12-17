@@ -94,9 +94,12 @@ This setup leaks memory as memoryStore doesn't have a way to make sessions expir
 As per express recommendation, developers should use a suitable session storage library. See below one example with `connect-pg-simple`, which stores session data in a postgres database.
 
 <https://github.com/RaihanSharif/Cyber_Security_base_2025_project1/blob/ac0608d4f1745a9a05558d0a938372693709fd9c/app.js#L22>
-In this example the session is also configured to be more secure. 
-* `secure` - Ensures that the browser only sends cookies over HTTPS
-* `httpOnly` - Ensure the cookie is sent only over HTTP(S), no client JavaScript, which protects against cross-site scripting.
-* `maxAge` - Ensure that the cookie expires after some time.
+In this example the session is also configured to be more secure.
+
+-   `secure` - Ensures that the browser only sends cookies over HTTPS
+-   `httpOnly` - Ensure the cookie is sent only over HTTP(S), no client JavaScript, which protects against cross-site scripting.
+-   `maxAge` - Ensure that the cookie expires after some time.
 
 ### A09 Security Logging and Monitoring Failures
+
+Logging key security event is vital to ensuring accountability. Meaning that in the event of a secuirty breach the security team is able to properly trace the source the breach, for example security misconfiguration. Logging is also important to be able to quickly see and respond to attacks. E.g. if a large number of login attempts are made in a short time, it should be logged so that appropriate action can be taken.
