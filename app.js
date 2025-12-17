@@ -5,6 +5,8 @@ const session = require("express-session");
 const authRouter = require("./routes/authRoutes.js");
 const postRouter = require("./routes/postRoutes.js");
 const pgSession = require("connect-pg-simple")(session);
+const pool = require("./db/pool.js");
+const app = express();
 
 const assetsPath = path.join(__dirname, "public");
 app.set("views", path.join(__dirname, "views"));
@@ -12,7 +14,6 @@ app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(assetsPath));
 
-const app = express();
 app.use(
     session({
         secret: process.env.SESSION_SECRET,

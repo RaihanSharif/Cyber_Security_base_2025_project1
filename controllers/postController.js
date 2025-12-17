@@ -5,8 +5,8 @@ const postValidator = require("../middlewares/postValidator");
 async function getAllPosts(req, res, next) {
     try {
         const { rows } =
-            await pool.query(`SELECT message, username FROM post JOIN user ON
-            post.user_id = user.id;`);
+            await pool.query(`SELECT message, username FROM post JOIN account ON
+            post.user_id=account.id;`);
         res.render("showPosts", { title: "posts", postList: rows });
     } catch (err) {
         return next(err);

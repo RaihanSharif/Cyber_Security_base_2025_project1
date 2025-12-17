@@ -1,10 +1,10 @@
 const bcrypt = require("bcryptjs");
-const passport = require("..config/passport");
+const passport = require("../config/authConfig");
 
-const { validationResult, matchedData } = require("express-vbalidator");
+const { validationResult, matchedData } = require("express-validator");
 
 const pool = require("../db/pool");
-const validateUser = require("..middlewares/userValidators");
+const validateUser = require("../middlewares/userValidator");
 
 function getSingup(req, res) {
     if (req.user) {
@@ -57,11 +57,13 @@ const postLogin = [
     }),
 ];
 
+// TODO: fix auth failure
 function getAdminView(req, res) {
+    console.log(req.query.admin === "true");
     if (req.query.admin === "true") {
-        res.render("admin-page");
+        res.render("adminPanel", { title: "admin panel" });
     } else {
-        req.send("this page is for administrators only");
+        res.send("this page is for administrators only");
     }
 }
 

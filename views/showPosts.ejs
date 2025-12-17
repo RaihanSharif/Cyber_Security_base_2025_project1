@@ -4,7 +4,7 @@
         <%- include('partials/head') %>
     </head>
     <body>
-        <%- include(partials/header') %>
+        <%- include('partials/header') %>
     </body>
     <main>
         <% if (locals.postList) {%>
@@ -16,6 +16,7 @@
             </div>
             <% }) %>
         </ul>
+        <% } %>
     </main>
     <%- include('partials/footer') %>
 </html>
