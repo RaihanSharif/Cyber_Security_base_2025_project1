@@ -6,6 +6,16 @@
     <body>
         <%- include(partials/header') %>
     </body>
-    <main>here be the posts</main>
+    <main>
+        <% if (locals.postList) {%>
+        <ul>
+            <% postList.forEach(post => { %>
+            <div clas="post-card">
+                <p><%= post.message %></p>
+                <p><%= post.username %></p>
+            </div>
+            <% }) %>
+        </ul>
+    </main>
     <%- include('partials/footer') %>
 </html>
