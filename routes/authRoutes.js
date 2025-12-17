@@ -12,6 +12,6 @@ authRouter.post("/log-in", accountController.postLogin);
 
 authRouter.post("/log-out", accountController.postLogout);
 
-authRouter.post("/admin", accountController.getAdminView);
+authRouter.get("/admin", accountController.getAdminView);
 
 module.exports = authRouter;
