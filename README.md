@@ -49,7 +49,7 @@ The database will now have an admin user with username: `admin` and password `ve
 
 # Run the app
 
-From the root of the project, from your project root directory, in terminal type:
+From the root of the project, in terminal type:
 `npm run dev`
 In your browser navigate to `http://127.0.0.1:3000` to see the application.
 
