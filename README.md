@@ -58,7 +58,7 @@ In your browser navigate to `http://127.0.0.1:3000` to see the application.
 ### A01:2021 Broken Access Control
 
 <https://github.com/RaihanSharif/Cyber_Security_base_2025_project1/blob/edf4eb1973339ebe7c5aed5ac426fbfc8e7271d2/controllers/accountController.js#L63>
-In this example, the admin page is viewable by using a url query parameter `/admin/?admin=true`. This breaks access control by allowing users without admin privilage to access the admin page. This could potentially expose sensitive data, and if there are no further authetintication or authorization checks (e.g. deleteing a user), it could lead to data intengrity failure.
+In this example, the admin page is viewable by using a url query parameter `/admin/?admin=true`. This breaks access control by allowing users without admin privilage to access the admin page. This could potentially expose sensitive data, and if there are no further authentication or authorization checks (e.g. deleteing a user), it could lead to data intengrity failure.
 
 In order to do this more securely, the developer should not trust user input and use it to determine access control. Instead of using client side checking which is easily edited to by:
 <https://github.com/RaihanSharif/Cyber_Security_base_2025_project1/blob/db2075f5e3db22f50dd351a84e137d6cb73cc43f/controllers/accountController.js#L64>
